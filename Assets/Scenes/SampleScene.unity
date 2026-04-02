@@ -2342,7 +2342,7 @@ MonoBehaviour:
       Data2: 1312713923
       Data3: 985794693
       Data4: 546241267
-    Path: event:/Wolf_Vocal
+    Path: event:/Wolf/Wolf_Vocal
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0

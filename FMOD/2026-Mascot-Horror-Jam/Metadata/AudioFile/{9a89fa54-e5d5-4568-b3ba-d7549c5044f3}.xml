@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{8916fbf0-2f59-47db-902c-40c894644487}">
+	<object class="AudioFile" id="{9a89fa54-e5d5-4568-b3ba-d7549c5044f3}">
 		<property name="assetPath">
-			<value>wolf_vocal3.wav</value>
+			<value>Wolf_Vocal7.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.5960544217687074</value>
+			<value>1.8449659863945578</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{42b0bd32-144b-4de2-ad3d-73db4adfa676}</destination>

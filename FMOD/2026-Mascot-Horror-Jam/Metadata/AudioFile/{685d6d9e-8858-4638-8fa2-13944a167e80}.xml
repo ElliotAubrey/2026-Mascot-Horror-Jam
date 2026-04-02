@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{685d6d9e-8858-4638-8fa2-13944a167e80}">
+		<property name="assetPath">
+			<value>Wolf_Vocal6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6772562358276644</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{42b0bd32-144b-4de2-ad3d-73db4adfa676}</destination>
+		</relationship>
+	</object>
+</objects>

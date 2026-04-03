@@ -5,7 +5,7 @@
 			<value>Wolf_Vocal</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{4a55be42-2a09-4ce5-8b77-eb1c0f7e4c1a}</destination>
@@ -128,6 +128,7 @@
 	<object class="MixerBusEffectChain" id="{90c85b43-0664-495e-985d-2ed1ee5d4cd7}">
 		<relationship name="effects">
 			<destination>{a081e6bf-575b-4127-8188-e24d9b3b0cc2}</destination>
+			<destination>{5d819201-be44-4759-9790-3127bb441626}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{697db4ad-5629-4faa-8dc0-d0c04775e7bb}" />
@@ -203,5 +204,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{848378b8-600d-4732-b11b-e1b409baf419}" />
 	<object class="MixerBusFader" id="{a081e6bf-575b-4127-8188-e24d9b3b0cc2}" />
+	<object class="SpatialiserEffect" id="{5d819201-be44-4759-9790-3127bb441626}" />
 	<object class="MixerBusFader" id="{17a9db6e-a28f-48c6-8028-c8e24da73831}" />
 </objects>

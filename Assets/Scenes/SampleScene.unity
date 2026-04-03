@@ -2180,6 +2180,8 @@ GameObject:
   - component: {fileID: 946943678}
   - component: {fileID: 946943677}
   - component: {fileID: 946943683}
+  - component: {fileID: 946943685}
+  - component: {fileID: 946943684}
   m_Layer: 0
   m_Name: '"Wolf"'
   m_TagString: Untagged
@@ -2343,6 +2345,68 @@ MonoBehaviour:
       Data3: 985794693
       Data4: 546241267
     Path: event:/Wolf/Wolf_Vocal
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &946943684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946943676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -459699023
+      Data2: 1266854957
+      Data3: 1389155972
+      Data4: 1557246400
+    Path: event:/Wolf/Wolf_Footsteps
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &946943685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946943676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1638481181
+      Data2: 1283598088
+      Data3: 227280270
+      Data4: -1635178669
+    Path: event:/Wolf/Wolf_Breath
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0

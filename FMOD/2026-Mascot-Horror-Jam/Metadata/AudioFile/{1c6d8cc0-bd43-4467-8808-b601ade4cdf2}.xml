@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{1c6d8cc0-bd43-4467-8808-b601ade4cdf2}">
+		<property name="assetPath">
+			<value>Ambience_House.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>34.285714285714285</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{42b0bd32-144b-4de2-ad3d-73db4adfa676}</destination>
+		</relationship>
+	</object>
+</objects>

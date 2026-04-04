@@ -8,16 +8,20 @@ public class WolfAI : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] float roamSpeed;
     [SerializeField] float chaseSpeed;
+    [SerializeField] float chaseThreshold = 10f;
     [SerializeField] float roamDistance = 100f;
-    [SerializeField] float roamSensitivity = 0.5f;
+    [SerializeField] float roamSensitivity = 1f;
     [SerializeField] Transform playerTransform;
+    [SerializeField] Camera wolfVisionCamera;
 
     Vector3 roamDestination;
-    bool roamset = true;
+    MeshRenderer playerVisionRenderer;
+    float timeInVision = 0f;
 
     private void Awake()
     {
         roamDestination = GetRandomRoamPoint();
+        playerVisionRenderer = playerTransform.GetChild(0).GetComponent<MeshRenderer>();
     }
 
     private void Update()
@@ -31,7 +35,25 @@ public class WolfAI : MonoBehaviour
                 {
                     roamDestination = GetRandomRoamPoint();
                 }
+                if(Vector3.Distance(transform.position,playerTransform.position) <= chaseThreshold)
+                {
+                    wolfVisionCamera.enabled = true;
+                    if(PlayerInFrustrum())
+                    {
+                        state = WolfStates.Chasing;
+                    }
+                    else
+                    {
+
+                    }
+                    
+                }
+                else 
+                { 
+                    wolfVisionCamera.enabled = false;
+                }
                 break;
+
             case WolfStates.Chasing:
                 agent.speed = chaseSpeed;
                 agent.destination = playerTransform.position;
@@ -51,9 +73,18 @@ public class WolfAI : MonoBehaviour
         randomDirection += transform.position;
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, roamDistance, 1);
-        Debug.Log(hit.position);
         return hit.position + Vector3.up;
+    }
+
+    bool PlayerInFrustrum()
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(wolfVisionCamera);
+        if(playerVisionRenderer == null)
+        {
+            playerVisionRenderer = playerTransform.GetComponent<MeshRenderer>();
+        }
+        return GeometryUtility.TestPlanesAABB(planes, playerVisionRenderer.bounds);
     }
 }
 
-public enum WolfStates { Roaming, Chasing, Attacking, PathToCandle, ExtinguishCandle}
+public enum WolfStates { Roaming, Chasing, GoToLastSeen, Attacking, PathToCandle, ExtinguishCandle}

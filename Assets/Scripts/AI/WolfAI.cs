@@ -4,22 +4,21 @@ using UnityEngine.AI;
 public class WolfAI : MonoBehaviour
 {
     public WolfStates state;
+    public bool ALLOW_MOVEMENT = false;
 
     [SerializeField] NavMeshAgent agent;
     [SerializeField] float roamSpeed;
     [SerializeField] float chaseSpeed;
-    [SerializeField] float chaseThreshold = 10f;
+    [SerializeField] float cameraThreshold = 10f;
     [SerializeField] float roamDistance = 100f;
     [SerializeField] float roamSensitivity = 1f;
-    [SerializeField] float attackRage = 1f;
-    [SerializeField] float chaseAfterNotSeeingPlayerTime = 3f;
+    [SerializeField] float attackRange = 1f;
+    [SerializeField] Transform wolfEyeTransform;
     [SerializeField] Transform playerTransform;
     [SerializeField] Camera wolfVisionCamera;
 
     Vector3 roamDestination;
     MeshRenderer playerVisionRenderer;
-    float timeInVision = 0f;
-    float cantSeePlayerChaseTimer = 0f;
     Vector3 lastSeenPlayerPosition;
 
     private void Awake()
@@ -30,24 +29,35 @@ public class WolfAI : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(agent.destination);
         switch (state)
         {
             case WolfStates.Roaming:
-                agent.speed = roamSpeed;
-                agent.destination = roamDestination;
-                if(Vector3.Distance(transform.position, roamDestination) < roamSensitivity)
+                if(ALLOW_MOVEMENT)
+                {
+                    agent.speed = roamSpeed;
+                    agent.destination = roamDestination;
+                }
+                
+                if (Vector3.Distance(transform.position, roamDestination) < roamSensitivity)
                 {
                     roamDestination = GetRandomRoamPoint();
+                    agent.destination = roamDestination;
                 }
-                if(Vector3.Distance(transform.position,playerTransform.position) <= chaseThreshold)
+                if(Vector3.Distance(transform.position,playerTransform.position) <= cameraThreshold)
                 {
                     wolfVisionCamera.enabled = true;
                     if(PlayerInFrustrum())
                     {
-                        state = WolfStates.Chasing;
+                        var rayDirection = playerTransform.position - transform.position;
+
+                        if (Physics.Raycast(transform.position, rayDirection, out RaycastHit eyeHit, 100f))
+                        {
+                            if (eyeHit.collider.CompareTag("Player"))
+                            {
+                                state = WolfStates.Chasing;
+                            }
+                        }
                     }
-                    
                 }
                 else 
                 { 
@@ -56,32 +66,20 @@ public class WolfAI : MonoBehaviour
                 break;
 
             case WolfStates.Chasing:
-                agent.speed = chaseSpeed;
-                agent.destination = playerTransform.position;
-                if (Vector3.Distance(transform.position, playerTransform.position) <= attackRage)
+                wolfVisionCamera.enabled = false;
+                if (ALLOW_MOVEMENT)
+                {
+                    agent.speed = chaseSpeed;
+                    agent.destination = playerTransform.position;
+                }
+                if (Vector3.Distance(transform.position, playerTransform.position) <= attackRange)
                 {
                     state = WolfStates.Attacking;
                 }
-                if(Physics.Raycast(transform.position, playerTransform.position, out RaycastHit hit))
-                {
-                    if (hit.collider.transform.position != playerTransform.position)
-                    {
-                        if(Time.time - cantSeePlayerChaseTimer > chaseAfterNotSeeingPlayerTime)
-                        {
-                            state = WolfStates.GoToLastSeen;
-                        }
-                    }
-                    else
-                    {
-                        cantSeePlayerChaseTimer = Time.time;
-                        lastSeenPlayerPosition = playerTransform.position;
-                    }
-                }
-                    break;
+                break;
 
             case WolfStates.Attacking:
                 agent.destination = transform.position;
-                Debug.Log("Attacking");
                 state = WolfStates.Chasing;
                 break;
 

@@ -42,10 +42,10 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Desktop/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639107810647853302
+  lastModified: 639108486251043027
   FileSizes:
   - Name: 
-    Value: 908
+    Value: 958
   Exists: 1
 --- !u!114 &-3612837228919284311
 MonoBehaviour:
@@ -68,12 +68,39 @@ MonoBehaviour:
   Banks:
   - {fileID: 3781656260750107054}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
   Length: 8000
+--- !u!114 &-848092071911335467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Rooms/Ambience_House
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Rooms/Ambience_House
+  Guid:
+    Data1: 809989611
+    Data2: 1116846508
+    Data3: 1917270206
+    Data4: -1823809024
+  Banks:
+  - {fileID: 3781656260750107054}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 34285
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,12 +121,13 @@ MonoBehaviour:
   - {fileID: 2881188136532809003}
   - {fileID: -3612837228919284311}
   - {fileID: 5684659178886993135}
+  - {fileID: -848092071911335467}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3781656260750107054}
   StringsBanks:
   - {fileID: -4204862088961743659}
-  cacheTime: 639107810647853302
+  cacheTime: 639108486251043027
   cacheVersion: 131635
 --- !u!114 &2881188136532809003
 MonoBehaviour:
@@ -122,7 +150,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 3781656260750107054}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
@@ -143,7 +171,7 @@ MonoBehaviour:
   Path: Assets/StreamingAssets/Desktop/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639107810647823329
+  lastModified: 639108486251017986
   FileSizes: []
   Exists: 1
 --- !u!114 &5684659178886993135
@@ -167,7 +195,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 3781656260750107054}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1

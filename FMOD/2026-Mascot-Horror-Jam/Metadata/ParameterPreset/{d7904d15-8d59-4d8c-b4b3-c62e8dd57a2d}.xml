@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{d7904d15-8d59-4d8c-b4b3-c62e8dd57a2d}">
+		<property name="name">
+			<value>Door_Intensity</value>
+		</property>
+		<relationship name="folder">
+			<destination>{bc3c67d6-d65b-484e-8881-09494a263d0c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{b110d84a-4665-4ea1-8035-a6e7d060b1c5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{b110d84a-4665-4ea1-8035-a6e7d060b1c5}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

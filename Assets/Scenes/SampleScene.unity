@@ -735,6 +735,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5473300675949207694}
+    - target: {fileID: 4074194200936169321, guid: 13327f6ccf38b904bac96bc9c4333e26, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 973a1de28ef570245b066e50c820a7ca, type: 2}
     - target: {fileID: 4970325782857825655, guid: 13327f6ccf38b904bac96bc9c4333e26, type: 3}
       propertyPath: m_Name
       value: wolf
